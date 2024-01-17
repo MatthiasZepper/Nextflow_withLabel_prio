@@ -3,8 +3,11 @@ workflow {
 }
 
 process print_config {
-    label 'label_top'
-    label 'label_bottom'
+    label 'group_top'
+    label 'group_bottom'
+    label 'cpu_setting'
+    label 'memory_setting'
+    label 'time_setting'
 
     output:
    	 stdout
