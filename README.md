@@ -10,7 +10,9 @@ The desire to establish a definitive answer to the handling of multiple `withLab
 
 Within [nf-core](https://nf-co.re/modules), a large collection of Nextflow pipelines and modules, the resources of a process are currently set based on a handful of labels like `process_low`, `process_medium`, `process_high`. Each of these specifies a fixed combination of CPU, memory and runtime. The rationale for this approach is, that those settings go hand in hand on some HPC and Cloud platforms, e.g all nodes having 12 CPUs and 6 GB RAM per CPU.
 
-However, it also leads to huge inefficiencies, for example a single-threaded tool blocking 12 cores just because it needs a particularly long runtime. Therefore, I proposed an [alternative approach](https://nfcore.slack.com/archives/CJRH30T6V/p1680090424544209), that was modelled after the [Tailwind philosophy](https://tailwindcss.com/) and would **add** labels with more granularity to the modules, e.g. `cpu_single`, `memory_medium` or  `runtime_long` etc. These would supplement the existing labels, but introduce the option to fine-tune a pipeline. In particular for use cases, where one pipeline is needed for a large number of samples, such tweaks could reduce computing costs significantly.
+However, it also leads to huge inefficiencies, for example a single-threaded tool blocking 12 cores just because it needs a particularly long runtime. Therefore, I proposed an [alternative approach](https://nfcore.slack.com/archives/CJRH30T6V/p1680090424544209), that was modelled after the [Tailwind philosophy](https://tailwindcss.com/) and would **add** additional labels with more granularity to the modules, e.g. `cpu_single`, `memory_medium` or  `runtime_long` etc.
+
+These would supplement the existing labels, but introduce the option to fine-tune a pipeline if desired. In particular for use cases, where one pipeline is needed for a large number of samples, such tweaks could reduce computing costs significantly.
 
 ## The experimental setup
 
@@ -20,9 +22,9 @@ For easier interpretation of the output, the `top` group contains even settings 
 
 It is designed to be run using the `-c` flag to specify different config files and observe the effects of various configurations.
 
-    ```bash
+```bash
     nextflow run -c groups_top_bottom.config .
-    ```
+```
 
 ## Results
 
