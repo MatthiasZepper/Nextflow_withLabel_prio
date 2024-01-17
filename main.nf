@@ -1,12 +1,11 @@
 workflow {
-    TASK() | view
+    print_config() | view
 }
 
-process TASK {
-    label 'process_top'
-    label 'process_bottom'
+process print_config {
+    label 'label_top'
+    label 'label_bottom'
 
-    input: 
     output:
    	 stdout
     script:
